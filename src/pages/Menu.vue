@@ -24,7 +24,7 @@ export default {
   methods: {
     emitirNota: function () {
       this.$router.replace({
-        path: 'emitir-nota/destinatario'
+        path: 'emitir-nota/comprador'
       })
     }
   }

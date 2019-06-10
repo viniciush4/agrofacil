@@ -20,9 +20,8 @@ const routes = [
     component: () => import('pages/Menu.vue')
   },
   {
-    path: '/emitir-nota/destinatario',
-    component: () => import('pages/EmitirNota/Destinatario.vue'),
-    props: { urlAnterior: '/menu', urlProxima: '/menu/produtos' }
+    path: '/emitir-nota/comprador',
+    component: () => import('pages/EmitirNota/Comprador.vue')
   },
   {
     path: '/emitir-nota/produtos',
