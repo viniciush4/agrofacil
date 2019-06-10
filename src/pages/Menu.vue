@@ -11,13 +11,10 @@
         <div class="q-pa-md" style="text-align: center;" v-if="propriedade_id">
           <span class="text-h5">O que você deseja fazer?</span>
           <div class="q-pa-md">
-            <q-btn color="primary" label="Emitir Nota Fiscal" class="full-width q-mt-md" @click="emitirNota" />
-            <q-btn color="primary" label="Ver Notas Emitidas" class="full-width q-mt-md" @click="emitirNota" />
+            <q-btn color="secondary" label="Emitir Nota Fiscal" class="full-width q-mt-md" @click="emitirNota" />
+            <q-btn color="secondary" label="Ver Notas Emitidas" class="full-width q-mt-md" @click="emitirNota" />
           </div>
         </div>
-        <!--<div class="q-pa-md q-gutter-md">-->
-          <!--<q-btn color="primary" label="Emitir Nota" class="full-width" @click="emitirNota" />-->
-        <!--</div>-->
       </q-page>
     </q-page-container>
   </q-layout>

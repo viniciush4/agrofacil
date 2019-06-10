@@ -8,40 +8,27 @@
     <q-page-container>
       <q-page class="flex flex-center">
         <div class="q-pa-md">
-          <transition name="slide-fade" mode="out-in">
-            <span class="text-h5">Quem é o comprador?</span>
-          </transition>
+          <span class="text-h5">Quem é o comprador?</span>
         </div>
         <div class="q-pa-md" style="max-width: 350px">
           <q-list bordered separator>
-            <q-item clickable v-ripple active-class="item-list-selected" :active="comprador_id == 1" @click="comprador_id = 1">
+            <q-item
+              clickable
+              v-ripple
+              v-for="comprador in compradores"
+              :key="comprador.nome"
+              active-class="item-list-selected"
+              :active="comprador_id == comprador.id"
+              @click="comprador_id = comprador.id"
+            >
               <q-item-section>
-                <q-item-label>Extrabom Supermercados Ltda</q-item-label>
-                <q-item-label caption lines="1">36.346.450/0001-67</q-item-label>
+                <q-item-label>{{ comprador.nome }}</q-item-label>
+                <q-item-label caption lines="1">{{ comprador.cnpj ? comprador.cnpj : comprador.cpf }}</q-item-label>
               </q-item-section>
 
               <q-item-section side top>
-                <q-item-label caption>18/06/2019</q-item-label>
-                <q-icon name="star" color="yellow" />
-              </q-item-section>
-            </q-item>
-
-            <q-item clickable v-ripple active-class="item-list-selected" :active="comprador_id == 2" @click="comprador_id = 2">
-              <q-item-section>
-                <q-item-label>Supermercados Carone Ltda</q-item-label>
-                <q-item-label caption>49.258.741/0001-98</q-item-label>
-              </q-item-section>
-
-              <q-item-section side top>
-                <q-item-label caption>18/06/2019</q-item-label>
-                <q-icon name="star" color="yellow" />
-              </q-item-section>
-            </q-item>
-
-            <q-item clickable v-ripple active-class="item-list-selected" :active="comprador_id == 3" @click="comprador_id = 3">
-              <q-item-section>
-                <q-item-label>João da Silva</q-item-label>
-                <q-item-label caption>138.457.897-19</q-item-label>
+                <q-item-label caption>{{ comprador.data_ultima_compra}}</q-item-label>
+                <q-icon name="star" color="yellow" v-if="comprador.favorito" />
               </q-item-section>
             </q-item>
           </q-list>
@@ -57,33 +44,6 @@
 </template>
 
 <style>
-  .animated {
-    animation-duration: 0.5s;
-  }
-  /* data change transitions */
-  .slide-fade-enter-active {
-    transition: all 0.3s ease;
-  }
-  .slide-fade-leave-active {
-    transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
-  }
-  .slide-fade-enter,
-  .slide-fade-leave-to {
-    transform: translateY(10px);
-    opacity: 0;
-  }
-
-  .fade-enter-active,
-  .fade-leave-active {
-    transition: opacity 0.5s;
-  }
-  .fade-enter,
-  .fade-leave-to {
-    opacity: 0;
-  }
-  .title {
-    transition-delay: 100ms;
-  }
   .q-layout__shadow:after{
     box-shadow: none;
   }
@@ -94,7 +54,50 @@ export default {
   name: 'PageEmitirNotaDestinatario',
   data () {
     return {
-      comprador_id: 0
+      comprador_id: 0,
+      comprador: {},
+      compradores: [
+        {
+          id: 1,
+          nome: 'Extrabom Supermercados Ltda',
+          cnpj: '36.346.450/0001-67',
+          cpf: '',
+          data_ultima_compra: '18/06/2019',
+          favorito: true
+        },
+        {
+          id: 2,
+          nome: 'Supermercados Carone Ltda',
+          cnpj: '49.258.741/0001-96',
+          cpf: '',
+          data_ultima_compra: '18/06/2019',
+          favorito: true
+        },
+        {
+          id: 3,
+          nome: 'João da Silva Sauro',
+          cnpj: '',
+          cpf: '138.219.478-89',
+          data_ultima_compra: '',
+          favorito: false
+        },
+        {
+          id: 4,
+          nome: 'Maria Josefina da Graças',
+          cnpj: '',
+          cpf: '138.219.478-90',
+          data_ultima_compra: '',
+          favorito: false
+        },
+        {
+          id: 5,
+          nome: 'Juvenal Siqueira',
+          cnpj: '',
+          cpf: '138.219.478-90',
+          data_ultima_compra: '',
+          favorito: false
+        }
+      ]
     }
   },
   methods: {
