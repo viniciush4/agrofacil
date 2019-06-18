@@ -11,7 +11,7 @@
               <q-icon name="person" />
             </template>
           </q-input>
-          <q-input color="secondary" bg-color="white" filled v-model="senha" label="Senha">
+          <q-input color="secondary" bg-color="white" filled v-model="senha" label="Senha" type="password">
             <template v-slot:prepend>
               <q-icon name="lock" />
             </template>

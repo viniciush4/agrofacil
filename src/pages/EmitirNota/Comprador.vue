@@ -7,17 +7,17 @@
     </q-header>
     <q-page-container>
       <q-page class="flex flex-center">
-        <div class="q-pa-md">
+        <div class="q-pa-md" style="text-align: center;">
           <span class="text-h5">Quem é o comprador?</span>
         </div>
-        <div class="q-pa-md" style="max-width: 350px">
-          <q-list bordered separator>
+        <div style="width:100%;">
+          <q-list>
             <q-item
               clickable
               v-ripple
               v-for="comprador in compradores"
-              :key="comprador.nome"
-              active-class="item-list-selected"
+              :key="comprador.id"
+              active-class="bg-teal-1 text-black"
               :active="comprador_id == comprador.id"
               @click="comprador_id = comprador.id"
             >
@@ -35,11 +35,13 @@
         </div>
       </q-page>
     </q-page-container>
-    <q-footer class="bg-secondary text-white">
-      <q-toolbar v-ripple class="q-pa-none" style="text-align: center;">
-        <q-btn flat class="full-width" label="Continuar" icon-right="arrow_forward_ios" @click="avancar"/>
-      </q-toolbar>
-    </q-footer>
+    <transition name="router-anim" enter-active-class="animated fadeInUp" leave-active-class="animated fadeOutDown">
+      <q-footer class="bg-secondary text-white" v-if="comprador_id != 0">
+        <q-toolbar v-ripple class="q-pa-none" style="text-align: center;">
+          <q-btn flat class="full-width" label="Continuar" icon-right="arrow_forward_ios" @click="avancar"/>
+        </q-toolbar>
+      </q-footer>
+    </transition>
   </q-layout>
 </template>
 
