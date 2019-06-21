@@ -31,6 +31,7 @@
                   v-model="produto.quantidade"
                   color="secondary"
                   :input-style="{ textAlign: 'center' }"
+                  @click="selecionarTexto"
                 />
               </q-item-section>
             </q-item>
@@ -110,6 +111,9 @@ export default {
       this.$router.replace({
         path: '/emitir-nota/transporte'
       })
+    },
+    selecionarTexto: function (event) {
+      event.target.select()
     }
   },
   computed: {

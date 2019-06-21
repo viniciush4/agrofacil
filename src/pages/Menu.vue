@@ -18,7 +18,8 @@
             <span class="text-h5">O que você deseja fazer?</span>
             <div class="q-pa-md">
               <q-btn color="secondary" label="Emitir Nota Fiscal" class="full-width q-mt-md" @click="emitirNota" />
-              <q-btn color="secondary" label="Ver Notas Emitidas" class="full-width q-mt-md" @click="emitirNota" />
+              <q-btn color="secondary" label="Ver Notas Emitidas" class="full-width q-mt-md" @click="emitirNota" disabled />
+              <q-btn color="secondary" label="Configurar Impressora" class="full-width q-mt-md" @click="emitirNota" disabled />
             </div>
           </div>
         </transition>

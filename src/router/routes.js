@@ -30,6 +30,10 @@ const routes = [
   {
     path: '/emitir-nota/transporte',
     component: () => import('pages/EmitirNota/Transporte.vue')
+  },
+  {
+    path: '/emitir-nota/impressao',
+    component: () => import('pages/EmitirNota/Impressao.vue')
   }
 ]
 

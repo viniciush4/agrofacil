@@ -53,7 +53,7 @@
 
 <script>
 export default {
-  name: 'PageEmitirNotaDestinatario',
+  name: 'PageEmitirNotaComprador',
   data () {
     return {
       comprador_id: 0,
