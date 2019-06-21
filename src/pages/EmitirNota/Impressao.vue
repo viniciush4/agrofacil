@@ -7,13 +7,10 @@
     <q-page-container>
       <q-page class="flex flex-center">
         <div class="q-pa-md" style="text-align: center;">
-          <span class="text-h5">Imprimindo...</span>
+          <span class="text-h5">Imprimindo Nota Fiscal...</span>
         </div>
         <div style="width:100%;">
-          <q-img
-            src="../assets/print-gif.gif"
-            spinner-color="white"
-          />
+          <img src="~assets/print-gif.gif" style="width:100%;">
         </div>
       </q-page>
     </q-page-container>
